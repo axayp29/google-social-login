@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    password: admin
+    url: jdbc:mysql://localhost:3306/googlelogindemo?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties :   
+      hibernate :
+        dialect : org.hibernate.dialect.MySQLDialect
+      
+  mvc:
+   view:
+     prefix : /WEB-INF/views/
+     suffix : .jsp
+     
+
+  security:
+    oauth2:
+      client:
+        registration:
+         google:
+          clientId: 65048125608-s8gc6603vt0p6447s5sdlisi5hv6f2l6.apps.googleusercontent.com
+          clientSecret: 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
+          scope:
+           - email
+           - profile
